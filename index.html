@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Giovanni &amp; Nik - Ingegneria e Architettura</title>
+<title>Studio di progettazione SAI - Ingegneria e Architettura</title>
 <style>
   :root {
     --blu: #1c3d5a;
@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 14px 20px;
+    position: relative;
   }
   .logo {
     display: flex;
@@ -63,10 +64,34 @@
   }
   nav a:hover { color: var(--oro); }
 
+  /* MENU MOBILE */
+  .menu-toggle { display: none; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
   /* HERO */
   .hero {
-    background: linear-gradient(rgba(16,38,59,0.85), rgba(16,38,59,0.85)),
-                repeating-linear-gradient(45deg, #22384c 0 40px, #1c3040 40px 80px);
+    background: linear-gradient(rgba(16,38,59,0.82), rgba(16,38,59,0.82)),
+                url('https://commons.wikimedia.org/wiki/Special:FilePath/Wide_angle_Milan_skyline_from_Duomo_roof.jpg?width=1600');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
     padding: 90px 20px 100px;
     text-align: center;
@@ -178,6 +203,8 @@
   .contatti-info h3 { color: var(--blu-scuro); margin-bottom: 20px; }
   .contatti-info p { margin-bottom: 14px; color: var(--grigio-testo); }
   .contatti-info strong { color: #222; display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;}
+  .contatti-info a { color: var(--grigio-testo); text-decoration: none; transition: color 0.2s; }
+  .contatti-info a:hover { color: var(--oro); text-decoration: underline; }
 
   .form-box { flex: 1.3; min-width: 300px; }
   .form-row { margin-bottom: 18px; }
@@ -238,10 +265,36 @@
   footer a { color: var(--oro); text-decoration: none; }
 
   @media (max-width: 700px) {
-    nav ul { gap: 16px; }
+    .hamburger { display: flex; }
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--blu-scuro);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .menu-toggle:checked ~ nav ul { max-height: 300px; }
+    nav ul li a {
+      display: block;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
     .hero h1 { font-size: 1.8rem; }
     .contatti-wrap { padding: 30px 22px; }
     .form-two-col { flex-direction: column; gap: 0; }
+  }
+
+  @media (max-width: 400px) {
+    .logo-text { font-size: 1.05rem; }
+    .hero h1 { font-size: 1.5rem; }
   }
 </style>
 </head>
@@ -256,8 +309,12 @@
         <line x1="24" y1="8" x2="24" y2="34" stroke="#b98a3c" stroke-width="2"/>
         <rect x="14" y="34" width="20" height="4" fill="#b98a3c"/>
       </svg>
-      <div class="logo-text">Giovanni <span>&amp;</span> Nik</div>
+      <div class="logo-text">Studio <span>SAI</span></div>
     </div>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </label>
     <nav>
       <ul>
         <li><a href="#chi-siamo">Chi siamo</a></li>
@@ -270,9 +327,9 @@
 
 <section class="hero" style="padding:0; margin:0; max-width:none;">
   <div style="padding: 90px 20px 100px;">
-    <h1>Studio di Ingegneria e Architettura<br>Giovanni &amp; Nik</h1>
-    <p>Progettiamo spazi sicuri, funzionali e su misura. Dall'idea al cantiere, un unico interlocutore per ingegneria, architettura e sicurezza.</p>
-    <a href="#contatti" class="btn">Richiedi una consulenza</a>
+    <h1>Studio di progettazione SAI<br>Ingegneria e Architettura</h1>
+    <p>Dalla tua idea al tuo progetto, senza compromessi: ingegneria, architettura e sicurezza in un unico studio di fiducia, per trasformare ogni spazio in qualcosa di straordinario.</p>
+    <a href="mailto:progettazione.sai@gmail.com?subject=Richiesta%20consulenza" class="btn">Richiedi una consulenza</a>
   </div>
 </section>
 
@@ -281,20 +338,20 @@
   <p class="section-sub">Esperienza, competenza tecnica e attenzione alla sicurezza al servizio dei nostri clienti.</p>
   <div class="about-content">
     <div>
-      <p>Lo Studio Giovanni &amp; Nik nasce dall'unione delle competenze di un ingegnere e di un architetto, uniti da anni di esperienza sul campo e da una visione comune: progettare non è solo disegnare uno spazio, ma renderlo sicuro, efficiente e duraturo nel tempo.</p>
+      <p>Lo Studio di progettazione SAI nasce dall'unione delle competenze di un ingegnere e di un architetto, uniti da anni di esperienza sul campo e da una visione comune: progettare non è solo disegnare uno spazio, ma renderlo sicuro, efficiente e duraturo nel tempo.</p>
       <p>Da diverso tempo affianchiamo privati, aziende e pubbliche amministrazioni in ogni fase del progetto: dalla prima idea alla direzione lavori, fino al collaudo finale, curando ogni dettaglio tecnico, normativo e di sicurezza.</p>
       <p>La nostra forza è la complementarità: uno sguardo architettonico attento a forma e funzione, unito a un rigore ingegneristico su strutture, impianti e sicurezza dei cantieri.</p>
     </div>
     <div class="founders">
       <div class="founder-card">
         <h3>Giovanni</h3>
-        <span>Ingegnere</span>
-        <p style="margin-top:10px; color:var(--grigio-testo); font-size:0.92rem;">Strutture, impianti e sicurezza nei luoghi di lavoro e nei cantieri.</p>
+        <span>Ingegnere edile</span>
+        <p style="margin-top:10px; color:var(--grigio-testo); font-size:0.92rem;">Ingegnere edile con solida esperienza, segue ogni mansione tipica della professione: progettazione strutturale, calcoli, direzione lavori, pratiche tecniche e catastali. Si occupa inoltre di sicurezza per aziende e cantieri, curando la conformità normativa in ogni fase dell'opera.</p>
       </div>
       <div class="founder-card">
         <h3>Nik</h3>
         <span>Architetto</span>
-        <p style="margin-top:10px; color:var(--grigio-testo); font-size:0.92rem;">Progettazione architettonica, riqualificazione e design degli spazi.</p>
+        <p style="margin-top:10px; color:var(--grigio-testo); font-size:0.92rem;">Architetto esperto, segue l'intero ambito della professione: progettazione architettonica, riqualificazione, restauro, design degli spazi e consulenza urbanistica, per trasformare ogni idea in un progetto concreto e curato in ogni dettaglio.</p>
       </div>
     </div>
   </div>
@@ -348,66 +405,30 @@
 </section>
 
 <section id="contatti">
-  <h2 class="section-title">Richiedi informazioni</h2>
-  <p class="section-sub">Compila il form: ti risponderemo al più presto per capire come possiamo aiutarti.</p>
-  <div class="contatti-wrap">
-    <div class="contatti-info">
+  <h2 class="section-title">Contattaci</h2>
+  <p class="section-sub">Hai un progetto in mente o vuoi una consulenza? Scrivici o chiamaci direttamente: siamo pronti ad ascoltarti e a trovare insieme la soluzione migliore.</p>
+  <div class="contatti-wrap" style="justify-content:center;">
+    <div class="contatti-info" style="max-width:480px; flex:none;">
       <h3>Contatti diretti</h3>
-      <p><strong>Email</strong>progettazione.sai@gmail.com</p>
-      <p><strong>Telefono</strong>+39 339 482 4288 &middot; +39 351 140 2824</p>
+      <p><strong>Email</strong><a href="mailto:progettazione.sai@gmail.com">progettazione.sai@gmail.com</a></p>
+      <p><strong>Telefono</strong>Giovanni: <a href="tel:+393394824288">+39 339 482 4288</a><br>Nik: <a href="tel:+393511402824">+39 351 140 2824</a></p>
       <p><strong>Indirizzo</strong>Via Luigi Biraghi 14, 20159 Milano (MI)</p>
       <p><strong>Orari</strong>Lun–Ven, 09:30–13:00 e 14:00–18:00</p>
-    </div>
-    <div class="form-box">
-      <form id="richiestaForm" action="https://formspree.io/f/TEST_FORM_ID" method="POST">
-        <div class="form-two-col">
-          <div class="form-row">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="Nome" required>
-          </div>
-          <div class="form-row">
-            <label for="cognome">Cognome</label>
-            <input type="text" id="cognome" name="Cognome" required>
-          </div>
-        </div>
-        <div class="form-two-col">
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="Email" required>
-          </div>
-          <div class="form-row">
-            <label for="telefono">Telefono</label>
-            <input type="tel" id="telefono" name="Telefono">
-          </div>
-        </div>
-        <div class="form-row">
-          <label for="servizio">Servizio richiesto</label>
-          <select id="servizio" name="Servizio richiesto">
-            <option>Progettazione architettonica</option>
-            <option>Progettazione strutturale</option>
-            <option>Direzione lavori</option>
-            <option>Sicurezza cantieri</option>
-            <option>Pratiche edilizie e catastali</option>
-            <option>Certificazioni energetiche</option>
-            <option>Ristrutturazioni e restauro</option>
-            <option>Consulenza tecnica e perizie</option>
-            <option>Altro</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="messaggio">Messaggio</label>
-          <textarea id="messaggio" name="Messaggio" rows="5" placeholder="Descrivi brevemente la tua richiesta..."></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Invia richiesta</button>
-        <p class="form-note">Inviando il form accetti che i dati siano trattati ai soli fini di ricontattarti. Email di destinazione attualmente in modalità test.</p>
-      </form>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2026 Studio Giovanni &amp; Nik — Ingegneria e Architettura. Tutti i diritti riservati.</p>
+  <p>&copy; 2026 Studio di progettazione SAI — Ingegneria e Architettura. Tutti i diritti riservati.</p>
 </footer>
+
+<script>
+  document.querySelectorAll('nav ul li a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      document.getElementById('menu-toggle').checked = false;
+    });
+  });
+</script>
 
 </body>
 </html>
