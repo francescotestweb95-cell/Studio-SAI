@@ -4,6 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Studio di progettazione SAI - Ingegneria e Architettura</title>
+
+<!-- SEO -->
+<meta name="description" content="Studio di progettazione SAI a Milano: ingegneria, architettura e sicurezza cantieri. Progettazione strutturale e architettonica, direzione lavori, pratiche edilizie, antincendio e certificazioni energetiche.">
+<meta name="keywords" content="ingegnere Milano, architetto Milano, studio di ingegneria, studio di architettura, sicurezza cantieri, progettazione strutturale, antincendio, direzione lavori">
+<meta name="author" content="Studio di progettazione SAI">
+<link rel="canonical" href="https://www.studiosai.it/">
+
+<!-- Open Graph / Facebook, LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Studio di progettazione SAI - Ingegneria e Architettura">
+<meta property="og:description" content="Ingegneria, architettura e sicurezza in un unico studio di fiducia a Milano. Scopri i nostri servizi e contattaci per una consulenza.">
+<meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Wide_angle_Milan_skyline_from_Duomo_roof.jpg?width=1200">
+<meta property="og:url" content="https://www.studiosai.it/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Studio di progettazione SAI - Ingegneria e Architettura">
+<meta name="twitter:description" content="Ingegneria, architettura e sicurezza in un unico studio di fiducia a Milano.">
+<meta name="twitter:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Wide_angle_Milan_skyline_from_Duomo_roof.jpg?width=1200">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics (GA4) - sostituisci G-XXXXXXXXXX con il tuo Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <style>
   :root {
     --blu: #1c3d5a;
@@ -14,12 +49,24 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #222;
     line-height: 1.6;
     background: #fff;
   }
   a { color: inherit; }
+  h1, h2, h3, .logo-text { font-family: 'Poppins', 'Segoe UI', Arial, sans-serif; }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
 
   /* HEADER */
   header {
@@ -266,6 +313,36 @@
   }
   footer a { color: var(--oro); text-decoration: none; }
 
+  /* MAPPA */
+  .contatti-wrap { max-width: 900px; }
+  .map-embed {
+    flex: 1;
+    min-width: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 280px;
+  }
+  .map-embed iframe { width: 100%; height: 100%; min-height: 280px; border: 0; display: block; }
+
+  /* WHATSAPP FLOTTANTE */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 300;
+    transition: transform 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+  .whatsapp-float svg { width: 30px; height: 30px; }
+
   @media (max-width: 700px) {
     .hamburger { display: flex; }
     nav {
@@ -305,11 +382,18 @@
 <header>
   <div class="header-inner">
     <div class="logo">
-      <svg width="38" height="38" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="23" stroke="#b98a3c" stroke-width="2"/>
-        <path d="M24 8 L38 34 H10 Z" stroke="#ffffff" stroke-width="2" fill="none"/>
-        <line x1="24" y1="8" x2="24" y2="34" stroke="#b98a3c" stroke-width="2"/>
-        <rect x="14" y="34" width="20" height="4" fill="#b98a3c"/>
+      <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="oroGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d9a94a"/>
+            <stop offset="100%" stop-color="#96702a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="24" cy="24" r="23" stroke="url(#oroGrad)" stroke-width="2"/>
+        <circle cx="24" cy="10" r="2.4" fill="url(#oroGrad)"/>
+        <path d="M24 12.4 L34 34 H14 Z" stroke="#ffffff" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <line x1="24" y1="12.4" x2="24" y2="34" stroke="url(#oroGrad)" stroke-width="1.6"/>
+        <line x1="12" y1="38" x2="36" y2="38" stroke="url(#oroGrad)" stroke-width="3" stroke-linecap="round"/>
       </svg>
       <div class="logo-text">Studio <span>SAI</span></div>
     </div>
@@ -336,9 +420,9 @@
 </section>
 
 <section id="chi-siamo">
-  <h2 class="section-title">Chi siamo</h2>
-  <p class="section-sub">Esperienza, competenza tecnica e attenzione alla sicurezza al servizio dei nostri clienti.</p>
-  <div class="about-content">
+  <h2 class="section-title reveal">Chi siamo</h2>
+  <p class="section-sub reveal">Esperienza, competenza tecnica e attenzione alla sicurezza al servizio dei nostri clienti.</p>
+  <div class="about-content reveal">
     <div>
       <p>Lo Studio di progettazione SAI nasce dall'unione delle competenze di un ingegnere e di un architetto, uniti da anni di esperienza sul campo e da una visione comune: progettare non è solo disegnare uno spazio, ma renderlo sicuro, efficiente e duraturo nel tempo.</p>
       <p>Da diverso tempo affianchiamo privati, aziende e pubbliche amministrazioni in ogni fase del progetto: dalla prima idea alla direzione lavori, fino al collaudo finale, curando ogni dettaglio tecnico, normativo e di sicurezza.</p>
@@ -360,9 +444,9 @@
 </section>
 
 <section id="servizi" style="background:#fafbfc;">
-  <h2 class="section-title">I nostri servizi</h2>
-  <p class="section-sub">Un'offerta completa che copre tutte le esigenze tecniche di ingegneria e architettura.</p>
-  <div class="servizi-grid">
+  <h2 class="section-title reveal">I nostri servizi</h2>
+  <p class="section-sub reveal">Un'offerta completa che copre tutte le esigenze tecniche di ingegneria e architettura.</p>
+  <div class="servizi-grid reveal">
     <div class="servizio-card">
       <span class="icon">🏛️</span>
       <h3>Progettazione architettonica</h3>
@@ -412,9 +496,9 @@
 </section>
 
 <section id="contatti">
-  <h2 class="section-title">Contattaci</h2>
-  <p class="section-sub">Hai un progetto in mente o vuoi una consulenza? Scrivici o chiamaci direttamente: siamo pronti ad ascoltarti e a trovare insieme la soluzione migliore.</p>
-  <div class="contatti-wrap">
+  <h2 class="section-title reveal">Contattaci</h2>
+  <p class="section-sub reveal">Hai un progetto in mente o vuoi una consulenza? Scrivici o chiamaci direttamente: siamo pronti ad ascoltarti e a trovare insieme la soluzione migliore.</p>
+  <div class="contatti-wrap reveal">
     <div class="contatti-info">
       <h3>Contatti diretti</h3>
       <p><strong>Email</strong><a href="mailto:progettazione.sai@gmail.com">progettazione.sai@gmail.com</a></p>
@@ -422,8 +506,17 @@
       <p><strong>Indirizzo</strong><a href="https://www.google.com/maps/search/?api=1&query=Via+Luigi+Biraghi+14%2C+20159+Milano+MI" target="_blank" rel="noopener">Via Luigi Biraghi 14, 20159 Milano (MI)</a></p>
       <p><strong>Orari</strong>Lun–Ven, 09:30–13:00 e 14:00–18:00</p>
     </div>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps?q=Via+Luigi+Biraghi+14,20159+Milano+MI&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa Studio SAI"></iframe>
+    </div>
   </div>
 </section>
+
+<a class="whatsapp-float" href="https://wa.me/393394824288?text=Ciao%2C%20vorrei%20richiedere%20una%20consulenza" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+    <path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.912 6.48L4 29l7.72-1.868A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm0 21.75c-1.92 0-3.71-.55-5.223-1.5l-.375-.223-4.58 1.108 1.15-4.46-.244-.386A9.71 9.71 0 0 1 5.25 15c0-5.937 4.813-10.75 10.75-10.75S26.75 9.063 26.75 15 21.938 24.75 16.001 24.75zm5.914-8.077c-.32-.16-1.897-.936-2.19-1.043-.294-.107-.508-.16-.722.16-.213.32-.827 1.043-1.014 1.257-.187.213-.373.24-.693.08-.32-.16-1.35-.497-2.573-1.587-.951-.848-1.593-1.895-1.78-2.215-.187-.32-.02-.493.14-.652.144-.143.32-.373.48-.56.16-.187.213-.32.32-.534.107-.213.053-.4-.027-.56-.08-.16-.722-1.74-.99-2.383-.26-.626-.526-.54-.722-.55l-.615-.01c-.213 0-.56.08-.853.4-.294.32-1.12 1.093-1.12 2.666 0 1.573 1.147 3.093 1.307 3.307.16.213 2.257 3.446 5.467 4.833.764.33 1.36.527 1.825.674.767.244 1.465.21 2.017.127.615-.092 1.897-.775 2.164-1.523.267-.748.267-1.39.187-1.523-.08-.133-.293-.213-.613-.373z"/>
+  </svg>
+</a>
 
 <footer>
   <p>&copy; 2026 Studio di progettazione SAI — Ingegneria e Architettura. Tutti i diritti riservati.</p>
@@ -434,6 +527,19 @@
     link.addEventListener('click', function () {
       document.getElementById('menu-toggle').checked = false;
     });
+  });
+
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
   });
 </script>
 
